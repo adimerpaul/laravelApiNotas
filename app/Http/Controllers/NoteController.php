@@ -14,8 +14,11 @@ class NoteController extends Controller{
 //            'title' => 'required',
 //            'content' => 'required'
 //        ]);
+        $colores = ['red', 'green', 'blue', 'grey', 'orange'];
+        $color = $colores[array_rand($colores)];
         $date = date('Y-m-d H:i:s');
         $request->merge(['date' => $date]);
+        $request->merge(['color' => $color]);
         return Note::create($request->all());
     }
     function show($id){
